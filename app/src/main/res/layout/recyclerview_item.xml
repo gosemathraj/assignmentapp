@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp">
+
+            <ImageView
+                android:id="@+id/item_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/item_image"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="15dp"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                />
+            <TextView
+                android:id="@+id/item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/item_image"
+                android:layout_below="@id/item_title"
+                android:textSize="12dp"
+                android:layout_marginRight="15dp"/>
+
+            <TextView
+                android:id="@+id/item_original_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/item_price"
+                android:layout_below="@id/item_title"
+                android:textSize="12dp"
+                android:layout_marginRight="10dp"/>
+
+            <TextView
+                android:id="@+id/item_off_percentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/item_original_price"
+                android:layout_below="@id/item_title"
+                android:textSize="12dp"
+                android:layout_marginRight="10dp"/>
+
+            <ImageView
+                android:id="@+id/like_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/like"
+                android:layout_below="@id/item_image"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp" />
+
+            <TextView
+                android:id="@+id/like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_image"
+                android:layout_toRightOf="@+id/like_button"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="10"/>
+
+            <ImageView
+                android:id="@+id/comment_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/comments"
+                android:layout_below="@id/item_image"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/like_count"/>
+
+            <TextView
+                android:id="@+id/comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/item_image"
+                android:layout_toRightOf="@+id/comment_button"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="10"/>
+
+            <TextView
+                android:id="@+id/dealer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:text="Amazon"
+                android:layout_marginRight="10dp"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

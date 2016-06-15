@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group1" android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/demo1"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo1"/>
+
+        <item
+            android:id="@+id/demo2"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo2" />
+
+        <item
+            android:id="@+id/demo3"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo3" />
+
+        <item
+            android:id="@+id/demo4"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo4" />
+
+        <item
+            android:id="@+id/demo5"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo5" />
+
+        <item
+            android:id="@+id/demo6"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo6" />
+
+        <item
+            android:id="@+id/demo7"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo7" />
+
+        <item
+            android:id="@+id/demo8"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo8" />
+
+        <item
+            android:id="@+id/demo9"
+            android:icon="@mipmap/ic_launcher"
+            android:title="@string/demo9" />
+
+    </group>
+
+</menu>
