@@ -10,6 +10,5 @@ package com.gosemathraj.paritycubeapp.api;
  */
 public interface DealsApi {
 
-
-
+    void loadDeals();
 }

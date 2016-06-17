@@ -41,17 +41,14 @@ public class MainActivity extends AppCompatActivity {
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
 
         if(toolbar != null){
-
             setSupportActionBar(toolbar);
         }
 
         if(viewPager != null){
-
             setUpViewPager(viewPager);
         }
 
         if(tabLayout != null){
-
             tabLayout.setupWithViewPager(viewPager);
         }
 
@@ -74,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
 
+                //Menu items Listeners
                 drawerLayout.closeDrawers();
                 return true;
             }

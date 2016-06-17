@@ -20,6 +20,7 @@ import com.gosemathraj.paritycubeapp.R;
 import com.gosemathraj.paritycubeapp.adapters.RecyclerviewAdapter;
 import com.gosemathraj.paritycubeapp.database.Dbhelper;
 import com.gosemathraj.paritycubeapp.model.Deals;
+import com.gosemathraj.paritycubeapp.utils.URLConstants;
 
 
 import org.json.JSONArray;
@@ -37,30 +38,62 @@ public class Top extends Fragment {
 
     private RecyclerView recyclerView;
     private ArrayList<Deals> dealsList = new ArrayList<>();
+    private ArrayList<Deals> newDealsList = new ArrayList<>();
+
+    private int firstVisibleItem, visibleItemCount, totalItemCount;
+    private int previousTotal = 0;
+    private boolean loading = true;
+    private int visibleThreshold = 4;
+    private int pageCount = 1;
     private RecyclerviewAdapter recyclerviewAdapter;
+    private static int counter = 1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View view = inflater.inflate(R.layout.fragment_home,container,false);
 
-
-        getData();
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                visibleItemCount = recyclerView.getChildCount();
+                totalItemCount = ((LinearLayoutManager) recyclerView.getLayoutManager()).getItemCount();
+                firstVisibleItem = ((LinearLayoutManager) recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
+
+                if (loading) {
+                    if (totalItemCount > previousTotal) {
+                        loading = false;
+                        previousTotal = totalItemCount;
+                        pageCount++;
+                    }
+                }
+                if (!loading && (totalItemCount - visibleItemCount) <= (firstVisibleItem + visibleThreshold)) {
+                    String url = "http://139.162.46.29/v1/deals/top.json&page=2";
+                    getData(url);
+
+                    loading = true;
+                }
+            }
+
+        });
+        getData(URLConstants.TOP_URL);
 
         return view;
     }
 
-    private void getData() {
+    private void getData(String URL) {
 
-        String URL = "http://139.162.46.29/v1/deals/top.json";
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
 
+                        String x = response;
                         try {
                             JSONArray jsonArray = new JSONArray(response);
                             for(int i = 0;i < jsonArray.length();i++){
@@ -77,6 +110,7 @@ public class Top extends Fragment {
                                 dealsList.add(deals);
                             }
 
+                            loadListData();
                             recyclerView.setAdapter(new RecyclerviewAdapter(getContext(), dealsList));
                             Dbhelper dbhelper = new Dbhelper(getContext());
                             dbhelper.addDeals(dealsList);
@@ -101,6 +135,11 @@ public class Top extends Fragment {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(getContext());
         requestQueue.add(stringRequest);
+    }
+
+    public void loadListData(){
+
+
     }
 }
 

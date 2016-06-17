@@ -12,4 +12,7 @@
     <string name="demo9">Demo9</string>
     <string name="closeDrawer">Navigation View</string>
     <string name="openDrawer">Navigation View Closed</string>
+    <string name="subgroup">subgroup</string>
+    <string name="sub_demo1">sub_demo1</string>
+    <string name="sub_demo2">sub_demo2</string>
 </resources>

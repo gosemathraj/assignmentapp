@@ -19,6 +19,7 @@ import com.gosemathraj.paritycubeapp.R;
 import com.gosemathraj.paritycubeapp.adapters.RecyclerviewAdapter;
 import com.gosemathraj.paritycubeapp.database.Dbhelper;
 import com.gosemathraj.paritycubeapp.model.Deals;
+import com.gosemathraj.paritycubeapp.utils.URLConstants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +54,7 @@ public class Featured extends Fragment {
 
     private void getData() {
 
-        String URL = "http://139.162.46.29/v1/deals/featured.json";
+        String URL = URLConstants.FEATURED_URL;
         StringRequest stringRequest = new StringRequest(Request.Method.GET,URL,
                 new Response.Listener<String>() {
                     @Override

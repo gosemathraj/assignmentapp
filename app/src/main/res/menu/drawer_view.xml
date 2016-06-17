@@ -28,6 +28,26 @@
             android:icon="@mipmap/ic_launcher"
             android:title="@string/demo5" />
 
+        <item android:title="@string/subgroup">
+
+            <menu>
+
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/popularity"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="@string/sub_demo1" />
+
+                    <item
+                        android:id="@+id/rate"
+                        android:icon="@mipmap/ic_launcher"
+                        android:title="@string/sub_demo2" />
+                </group>
+
+            </menu>
+
+        </item>
+
         <item
             android:id="@+id/demo6"
             android:icon="@mipmap/ic_launcher"

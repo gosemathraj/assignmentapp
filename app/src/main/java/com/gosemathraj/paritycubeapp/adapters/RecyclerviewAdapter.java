@@ -50,6 +50,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<RecyclerviewAdapte
         holder.comments_count.setText(deals.get(position).getComments_count());
         holder.like_count.setText(deals.get(position).getLike_count());
 
+        //image url is not returning anything so used fixed category url
         Picasso.with(context).load("http://cdn0.desidime.com/categories/12/thumb/19-Other.png?1456740336").into(holder.image);
     }
 
